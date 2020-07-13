@@ -22,15 +22,15 @@ import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("justinmod")
-public class HungerGamesMod
+@Mod("hungermod")
+public class HungerMod
 {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static final String MODID = "justinmod";
+    public static final String MODID = "hungermod";
 
-    public HungerGamesMod() {
+    public HungerMod() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);

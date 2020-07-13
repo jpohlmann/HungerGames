@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "justinmod:block/ethan"
+    "all": "hungermod:block/ethan"
   }
 }

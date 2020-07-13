@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-@Mod.EventBusSubscriber(modid = JustinMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = HungerMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventSubscriber {
     @SubscribeEvent
     public static void onRegisterItems(RegistryEvent.Register<Item> event) {
@@ -40,7 +40,7 @@ public class ModEventSubscriber {
                 });
     }
     public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) {
-        return setup(entry, new ResourceLocation(JustinMod.MODID, name));
+        return setup(entry, new ResourceLocation(HungerMod.MODID, name));
     }
 
     public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final ResourceLocation registryName) {

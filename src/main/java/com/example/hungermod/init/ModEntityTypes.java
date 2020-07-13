@@ -1,5 +1,6 @@
 package com.example.hungermod.init;
 
+import com.example.hungermod.HungerMod;
 import com.example.hungermod.entity.TrackerJackerEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -21,13 +22,13 @@ import net.minecraftforge.registries.ForgeRegistries;
  */
 public final class ModEntityTypes {
 
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, com.example.hungermod.HungerGamesMod.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, HungerMod.MODID);
 
     public static final String TRACKER_JACKER_NAME = "tracker_jacker";
     public static final RegistryObject<EntityType<TrackerJackerEntity>> TRACKER_JACKER = ENTITY_TYPES.register(TRACKER_JACKER_NAME, () ->
             EntityType.Builder.<TrackerJackerEntity>create(TrackerJackerEntity::new, EntityClassification.CREATURE)
                     .size(EntityType.BEE.getWidth(), EntityType.BEE.getHeight())
-                    .build(new ResourceLocation(com.example.hungermod.HungerGamesMod.MODID, TRACKER_JACKER_NAME).toString())
+                    .build(new ResourceLocation(HungerMod.MODID, TRACKER_JACKER_NAME).toString())
     );
 
 }

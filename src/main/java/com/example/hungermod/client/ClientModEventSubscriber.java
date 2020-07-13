@@ -1,5 +1,6 @@
 package com.example.hungermod.client;
 
+import com.example.hungermod.HungerMod;
 import com.example.hungermod.client.render.entity.TrackerJackerRenderer;
 import com.example.hungermod.init.ModEntityTypes;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,10 +16,10 @@ import org.apache.logging.log4j.Logger;
  *
  * @author Cadiboo
  */
-@EventBusSubscriber(modid = com.example.hungermod.HungerGamesMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = HungerMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientModEventSubscriber {
 
-    private static final Logger LOGGER = LogManager.getLogger(com.example.hungermod.HungerGamesMod.MODID + " Client Mod Event Subscriber");
+    private static final Logger LOGGER = LogManager.getLogger(HungerMod.MODID + " Client Mod Event Subscriber");
 
     /**
      * We need to register our renderers on the client because rendering code does not exist on the server

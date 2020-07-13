@@ -1,5 +1,6 @@
 package com.example.hungermod.init;
 
+import com.example.hungermod.HungerMod;
 import com.example.hungermod.block.Ethan;
 import com.example.hungermod.block.Jackson;
 import net.minecraft.block.Block;
@@ -14,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
  * @author Justin and Jackson Pohlmann
  */
 public final class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, com.example.hungermod.HungerGamesMod.MODID);
+    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, HungerMod.MODID);
     public static final RegistryObject<Block> JACKSON = BLOCKS.register("jackson", () -> new Jackson(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
     public static final RegistryObject<Block> ETHAN = BLOCKS.register("ethan", () -> new Ethan(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
 }
