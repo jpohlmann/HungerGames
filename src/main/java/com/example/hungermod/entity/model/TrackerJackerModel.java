@@ -78,7 +78,7 @@ public class TrackerJackerModel<T extends TrackerJackerEntity> extends AgeableMo
     public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
         super.setLivingAnimations(entityIn, limbSwing, limbSwingAmount, partialTick);
         this.bodyPitch = entityIn.getBodyPitch(partialTick);
-        this.stinger.showModel = !entityIn.hasStung();
+        this.stinger.showModel = true;
     }
 
     /**
@@ -113,21 +113,6 @@ public class TrackerJackerModel<T extends TrackerJackerEntity> extends AgeableMo
             this.body.rotateAngleX = 0.0F;
             this.body.rotateAngleY = 0.0F;
             this.body.rotateAngleZ = 0.0F;
-        }
-
-        if (!entityIn.isAngry()) {
-            this.body.rotateAngleX = 0.0F;
-            this.body.rotateAngleY = 0.0F;
-            this.body.rotateAngleZ = 0.0F;
-            if (!flag) {
-                float f1 = MathHelper.cos(ageInTicks * 0.18F);
-                this.body.rotateAngleX = 0.1F + f1 * (float)Math.PI * 0.025F;
-                this.leftAntenna.rotateAngleX = f1 * (float)Math.PI * 0.03F;
-                this.rightAntenna.rotateAngleX = f1 * (float)Math.PI * 0.03F;
-                this.frontLegs.rotateAngleX = -f1 * (float)Math.PI * 0.1F + ((float)Math.PI / 8F);
-                this.backLegs.rotateAngleX = -f1 * (float)Math.PI * 0.05F + ((float)Math.PI / 4F);
-                this.body.rotationPointY = 19.0F - MathHelper.cos(ageInTicks * 0.18F) * 0.9F;
-            }
         }
 
         if (this.bodyPitch > 0.0F) {

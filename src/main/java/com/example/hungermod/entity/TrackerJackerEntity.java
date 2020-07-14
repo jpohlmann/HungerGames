@@ -60,9 +60,10 @@ public class TrackerJackerEntity extends AnimalEntity {
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(baseSpeed * 1.5D);
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(baseHealth * 1.5D);
     }
-    public BeeEntity createChild(AgeableEntity ageable) {
-        return EntityType.BEE.create(this.world);
+    public TrackerJackerEntity createChild(AgeableEntity ageable) {
+        return (TrackerJackerEntity) getType().create(this.world);
     }
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new TrackerJackerEntity.StingGoal(this, (double)1.4F, true));
@@ -111,14 +112,7 @@ public class TrackerJackerEntity extends AnimalEntity {
 
         this.updateBodyPitch();
     }
-    public boolean isAngry()
-    {
-        return true;
-    }
 
-    public boolean hasStung() {
-        return false;
-    }
     private void updateBodyPitch() {
         this.rollAmountO = this.rollAmount;
         this.rollAmount = Math.max(0.0F, this.rollAmount - 0.24F);
@@ -131,45 +125,32 @@ public class TrackerJackerEntity extends AnimalEntity {
         }
 
         /**
-         * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-         * method as well.
-         */
-        public boolean shouldExecute() {
-            return this.canSting() && super.shouldExecute();
-        }
-
-        /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
         public boolean shouldContinueExecuting() {
-            boolean flag = this.canSting();
-            if (flag && this.goalOwner.getAttackTarget() != null) {
+            if (this.goalOwner.getAttackTarget() != null) {
                 return super.shouldContinueExecuting();
             } else {
                 this.target = null;
                 return false;
             }
         }
-
-        private boolean canSting() {
-            return true;
-        }
     }
 
-    class StingGoal extends JustinMeleeAttackGoal {
+    class StingGoal extends MeleeAttackGoal {
         StingGoal(CreatureEntity creatureIn, double speedIn, boolean useLongMemory) {
             super(creatureIn, speedIn, useLongMemory);
         }
 
         /**
-         * Always be stinging!
+         * Sting if we have a target
          */
         public boolean shouldExecute() {
             return TrackerJackerEntity.this.getAttackTarget() != null;
         }
 
         /**
-         * Always be stinging!
+         * Keep stinging if we have a target
          */
         public boolean shouldContinueExecuting() {
             return TrackerJackerEntity.this.getAttackTarget() != null;
