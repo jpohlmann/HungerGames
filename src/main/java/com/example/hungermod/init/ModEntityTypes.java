@@ -2,6 +2,7 @@ package com.example.hungermod.init;
 
 import com.example.hungermod.HungerMod;
 import com.example.hungermod.entity.TrackerJackerEntity;
+import com.example.hungermod.entity.TurkeyEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
@@ -29,6 +30,12 @@ public final class ModEntityTypes {
             EntityType.Builder.<TrackerJackerEntity>create(TrackerJackerEntity::new, EntityClassification.CREATURE)
                     .size(EntityType.BEE.getWidth(), EntityType.BEE.getHeight())
                     .build(new ResourceLocation(HungerMod.MODID, TRACKER_JACKER_NAME).toString())
+    );
+    public static final String TURKEY_NAME = "turkey";
+    public static final RegistryObject<EntityType<TurkeyEntity>> TURKEY = ENTITY_TYPES.register(TURKEY_NAME, () ->
+            EntityType.Builder.<TurkeyEntity>create(TurkeyEntity::new, EntityClassification.CREATURE)
+                    .size(EntityType.CHICKEN.getWidth(), EntityType.CHICKEN.getHeight())
+                    .build(new ResourceLocation(HungerMod.MODID, TURKEY_NAME).toString())
     );
 
 }

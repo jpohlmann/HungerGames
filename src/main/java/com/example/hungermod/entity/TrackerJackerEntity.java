@@ -75,7 +75,7 @@ public class TrackerJackerEntity extends AnimalEntity {
     }
 
     public boolean attackEntityAsMob(Entity entityIn) {
-        float damage = 1;
+        float damage = 6;
         DamageSource source = DamageSource.func_226252_a_(this);
         boolean flag = entityIn.attackEntityFrom(
             source,
