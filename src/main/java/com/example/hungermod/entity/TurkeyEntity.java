@@ -8,6 +8,5 @@ import net.minecraft.world.World;
 public class TurkeyEntity extends ChickenEntity {
     public TurkeyEntity(EntityType<? extends ChickenEntity> type, World worldIn) {
         super(type, worldIn);
-        this.setPathPriority(PathNodeType.WATER, 0.0F);
     }
 }

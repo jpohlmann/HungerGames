@@ -1,6 +1,7 @@
 package com.example.hungermod.client;
 
 import com.example.hungermod.HungerMod;
+import com.example.hungermod.client.render.entity.MockingJayRenderer;
 import com.example.hungermod.client.render.entity.TrackerJackerRenderer;
 import com.example.hungermod.client.render.entity.TurkeyRenderer;
 import com.example.hungermod.init.ModEntityTypes;
@@ -37,6 +38,7 @@ public final class ClientModEventSubscriber {
         // Register Entity Renderers
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TRACKER_JACKER.get(), TrackerJackerRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.TURKEY.get(), TurkeyRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.MOCKING_JAY.get(), MockingJayRenderer::new);
         LOGGER.debug("Registered Entity Renderers");
 
     }

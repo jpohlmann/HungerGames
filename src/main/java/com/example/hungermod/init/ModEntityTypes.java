@@ -1,6 +1,7 @@
 package com.example.hungermod.init;
 
 import com.example.hungermod.HungerMod;
+import com.example.hungermod.entity.MockingJayEntity;
 import com.example.hungermod.entity.TrackerJackerEntity;
 import com.example.hungermod.entity.TurkeyEntity;
 import net.minecraft.entity.EntityClassification;
@@ -36,6 +37,12 @@ public final class ModEntityTypes {
             EntityType.Builder.<TurkeyEntity>create(TurkeyEntity::new, EntityClassification.CREATURE)
                     .size(EntityType.CHICKEN.getWidth(), EntityType.CHICKEN.getHeight())
                     .build(new ResourceLocation(HungerMod.MODID, TURKEY_NAME).toString())
+    );
+    public static final String MOCKING_JAY_NAME = "mocking_jay";
+    public static final RegistryObject<EntityType<MockingJayEntity>> MOCKING_JAY = ENTITY_TYPES.register(MOCKING_JAY_NAME, () ->
+            EntityType.Builder.<MockingJayEntity>create(MockingJayEntity::new, EntityClassification.CREATURE)
+                    .size(EntityType.PARROT.getWidth(), EntityType.PARROT.getHeight())
+                    .build(new ResourceLocation(HungerMod.MODID, MOCKING_JAY_NAME).toString())
     );
 
 }
